@@ -10,13 +10,13 @@ import ChatScreen from '../screens/ChatScreen';
 
 const MainDrawerNavigator = createDrawerNavigator(
 	{
-	  Welcome: {
+	  WelcomeScreen: {
 	    screen: WelcomeScreen,
 	  },
-	  Chat: {
+	  ChatScreen: {
 	    screen: ChatScreen,
 	  },
-	  LastConvo: {
+	  LastConvoScreen: {
 	    screen: LastConvoScreen,
 	  },
 	},

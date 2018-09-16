@@ -1,6 +1,8 @@
 import React from 'react';
 import { Image, StyleSheet, View , ImageBackground, Text } from 'react-native';
 
+import * as firebase from 'firebase';
+
 import ChatBot from 'react-native-chatbot';
 import Steps from '../constants/Steps';
 
@@ -16,11 +18,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'transparent',
   },
-  backgroundImage: {
-    flex: 1,
-    width: null,
-    height: null,
-  },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
@@ -35,12 +32,13 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'Brandon_bld',
-    fontSize: 30,
-    marginTop:20,
+    fontSize: 20,
+    marginTop:10,
     textAlign:'center',
     color: 'rgba(248,235,158,1)',
   },
 });
+
 
 export default class ChatScreen extends React.Component {
   static navigationOptions = {
@@ -48,23 +46,20 @@ export default class ChatScreen extends React.Component {
   };
 
   render() {
+
     return (
-      <ImageBackground source={require('../assets/images/background1.png')}
-       resizeMode = 'stretch'
-       style={styles.backgroundImage}
-      >
-        <Text style={styles.text}> HelloLens ChatBot</Text>
+      <View>
         <ChatBot
-          style = {{ backgroundColor: '#EEE', paddingTop: 50}}
+          style = {{backgroundColor: '#EEE', paddingTop: 50}}
           botAvatar = '../assets/images/logo2.png'
           botBubbleColor='rgba(248,235,158,1)'
           botFontColor='black'
           contentStyle={{backgroundColor: 'rgba(76,76,76,1)'}}
           style={{backgroundColor: 'rgba(76,76,76,1)'}}
           footerStyle={{backgroundColor:"white"}}
-          steps={Steps}
+          steps={Steps.steppy}
         />
-      </ImageBackground>
+      </View>
     );
   }
 }

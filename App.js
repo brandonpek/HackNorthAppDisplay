@@ -2,8 +2,11 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import data from './screens/data';
 
 import * as firebase from 'firebase';
+
+
 
 export default class App extends React.Component {
   constructor (props) {
@@ -28,7 +31,33 @@ export default class App extends React.Component {
     
   }
 
+  
+  updateData = () => {
+    if (data.called == false){
+      data.called = true;
+        firebase.database().ref('conversations/conv0/msg').once('value').then(
+        function(snapshot){
+          console.log("snapshot val",snapshot.val())
+          data.lastConvo = snapshot.val();
+        })
+
+        firebase.database().ref('conversations/conv0/msg').once('value').then(
+        function(snapshot){
+          console.log("snapshot val",snapshot.val())
+          data.twoHours = snapshot.val();
+        })
+
+        firebase.database().ref('conversations/conv0/msg').once('value').then(
+        function(snapshot){
+          console.log("snapshot val",snapshot.val())
+          data.yesterday = snapshot.val();
+        })
+    }
+};
+
   render() {
+    this.updateData();
+
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
         <AppLoading
