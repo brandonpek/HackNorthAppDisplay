@@ -1,8 +1,13 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View , ImageBackground, Text } from 'react-native';
 
 import ChatBot from 'react-native-chatbot';
 import Steps from '../constants/Steps';
+
+Expo.Font.loadAsync({
+  'Brandon_bld': require('../assets/fonts/Brandon_bld.ttf'),
+  'Brandon_reg': require('../assets/fonts/Brandon_reg.ttf'),
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -10,6 +15,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
+  },
+  backgroundImage: {
+    flex: 1,
+    width: null,
+    height: null,
   },
   welcome: {
     fontSize: 20,
@@ -27,18 +37,26 @@ const styles = StyleSheet.create({
 
 export default class ChatScreen extends React.Component {
   static navigationOptions = {
-    title: 'Chat',
+    header: null,
   };
 
   render() {
     return (
-      <View style = {styles.screen}> 
+      <ImageBackground source={require('../assets/images/background1.png')}
+       resizeMode = 'stretch'
+       style={styles.backgroundImage}
+      >
         <ChatBot
           style = {{ backgroundColor: '#EEE', paddingTop: 50}}
-          botBubbleColor='#00008b'
+          botAvatar = '../assets/images/logo.png'
+          botBubbleColor='rgba(248,235,158,1)'
+          botFontColor='black'
+          contentStyle={{backgroundColor: 'rgba(76,76,76,1)', marginTop: 50,}}
+          style={{backgroundColor: 'rgba(76,76,76,1)'}}
+          footerStyle={{backgroundColor:"white"}}
           steps={Steps}
         />
-      </View>
+      </ImageBackground>
     );
   }
 }

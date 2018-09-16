@@ -1,60 +1,30 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import LastConvoScreen from '../screens/LastConvoScreen';
+import WelcomeScreen from '../screens/WelcomeScreen';
 import ChatScreen from '../screens/ChatScreen';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
-});
+const MainDrawerNavigator = createDrawerNavigator(
+	{
+	  Welcome: {
+	    screen: WelcomeScreen,
+	  },
+	  Chat: {
+	    screen: ChatScreen,
+	  },
+	  LastConvo: {
+	    screen: LastConvoScreen,
+	  },
+	},
+	{
+		drawerBackgroundColor: 'rgba(76,76,76,1)'
+	}
+);
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
-};
+export default MainDrawerNavigator;
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
-});
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
-    />
-  ),
-};
-
-const ChatStack = createStackNavigator({
-  Chat: ChatScreen,
-});
-
-ChatStack.navigationOptions = {
-  tabBarLabel: 'Chat',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
-    />
-  ),
-};
-
-export default createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  ChatStack,
-});
