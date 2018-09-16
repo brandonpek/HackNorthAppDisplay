@@ -35,13 +35,13 @@ export default class App extends React.Component {
   updateData = () => {
     if (data.called == false){
       data.called = true;
-        firebase.database().ref('conversations/conv0/msg').once('value').then(
+        firebase.database().ref('conversations/conv2/msg').once('value').then(
         function(snapshot){
           console.log("snapshot val",snapshot.val())
           data.lastConvo = snapshot.val();
         })
 
-        firebase.database().ref('conversations/conv0/msg').once('value').then(
+        firebase.database().ref('conversations/conv1/msg').once('value').then(
         function(snapshot){
           console.log("snapshot val",snapshot.val())
           data.twoHours = snapshot.val();

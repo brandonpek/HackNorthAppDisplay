@@ -34,7 +34,7 @@ export default class LastConvoScreen extends React.Component {
 
   loadConv = () => { 
     var pointer = this;
-    firebase.database().ref('conversations/conv0/msg').once('value').then(
+    firebase.database().ref('conversations/conv2/msg').once('value').then(
       function(snapshot){
         console.log("snapshot val",snapshot.val())
         pointer.setState({text1:snapshot.val()});
