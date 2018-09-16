@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   text2: {
     fontFamily: 'Brandon_reg',
-    marginTop: 300,
+    marginTop: 250,
     marginLeft: 20,
     fontSize: 40,
     textAlign: 'left',

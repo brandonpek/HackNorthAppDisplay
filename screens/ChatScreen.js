@@ -33,6 +33,13 @@ const styles = StyleSheet.create({
   screen: {
     backgroundColor: '#3D6DCC', 
   },
+  text: {
+    fontFamily: 'Brandon_bld',
+    fontSize: 30,
+    marginTop:20,
+    textAlign:'center',
+    color: 'rgba(248,235,158,1)',
+  },
 });
 
 export default class ChatScreen extends React.Component {
@@ -46,12 +53,13 @@ export default class ChatScreen extends React.Component {
        resizeMode = 'stretch'
        style={styles.backgroundImage}
       >
+        <Text style={styles.text}> HelloLens ChatBot</Text>
         <ChatBot
           style = {{ backgroundColor: '#EEE', paddingTop: 50}}
-          botAvatar = '../assets/images/logo.png'
+          botAvatar = '../assets/images/logo2.png'
           botBubbleColor='rgba(248,235,158,1)'
           botFontColor='black'
-          contentStyle={{backgroundColor: 'rgba(76,76,76,1)', marginTop: 50,}}
+          contentStyle={{backgroundColor: 'rgba(76,76,76,1)'}}
           style={{backgroundColor: 'rgba(76,76,76,1)'}}
           footerStyle={{backgroundColor:"white"}}
           steps={Steps}

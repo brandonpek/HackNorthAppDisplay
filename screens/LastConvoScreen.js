@@ -53,7 +53,7 @@ export default class LastConvoScreen extends React.Component {
               <Text style={styles.header}>Last Conversation</Text>
               <Button
               title="Refresh"
-              titleStyle={{ fontWeight: "20" }}
+              titleStyle={{ fontSize: "20", color:'rgba(145,162,231,1)', fontFamily: 'Brandon_reg' }}
               buttonStyle={styles.button}
               onPress={() => this.loadConv()}
             />
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 30,
     textAlign: 'center',
-    color: 'gold',
+    color: 'rgba(248,235,158,1)',
   },
   container: {
     flex: 1,
@@ -105,5 +105,7 @@ const styles = StyleSheet.create({
     marginTop:5,
     fontSize:20,
     textAlign: 'left',
+    marginLeft: 10,
+    color: 'rgba(181,234,208,1)'
   }
 });
